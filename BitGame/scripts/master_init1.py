@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## master_init.py
+## master_init1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -59,4 +59,3 @@ def init_audio():
     for i in range(36):
         note_list.append(str(i))
     gl.note_piano = EasyAudio(note_list, "//samples/")
-

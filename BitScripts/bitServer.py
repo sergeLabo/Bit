@@ -181,5 +181,3 @@ if __name__ == "__main__":
     # Run server
     print "The server is running ..."
     servermain.game_server()
-
-

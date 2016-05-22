@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## yomi.py
+## yomi1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -26,8 +26,7 @@ try:
     from bge import logic as gl
 except:
     pass
-    
+
 
 class Yomi():
     print("Game")
-

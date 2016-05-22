@@ -41,10 +41,13 @@ class MyBot(SingleServerIRCBot):
     def on_pubmsg(self, serv, ev):
         # Get new message
         message = ev.arguments[0]
+        print("Message brut:\n", message)
         # Delete color codes codes and get only text
         messageIRC = re.compile("\x03[0-9]{0,2}").sub('', message)
 
-        addressPosition = re.search("http://fr.wikipedia.org", messageIRC)
+        addressPosition = re.search("https://fr.wikipedia.org", messageIRC)
+
+        out = None
         if addressPosition != None :
             address = messageIRC[addressPosition.start(0):]
             tab = re.split('&', address)
@@ -52,20 +55,18 @@ class MyBot(SingleServerIRCBot):
 
             # Get wikipedia modif page
             req = urllib2.Request(address)
+
             # Add header becauce wikipedia expected a navigator
             req.add_header('User-agent', 'WikikIRC-0.4')
             # Read diff wikipedia page
             fp = urllib2.urlopen(req)
             text = fp.read()
-            #print("text", type(text))
-            # text = <type 'str'>
-
+            #print("text", text)
             fp.close()
 
             # text = str = encode in 2.7, I decode
             html = text.decode('UTF-8')
-            #print("html", type(html))
-            # <type 'unicode'>
+            #print("html", html)
 
             # Return a list with item = lines, lines are finished with \n
             lines = html.splitlines()
@@ -74,7 +75,7 @@ class MyBot(SingleServerIRCBot):
                 if '<td class="diff-context"><div>' in line :
                     a += 1
                     if a == 1:
-                        soup = BeautifulSoup(line)
+                        soup = BeautifulSoup(line, "html5lib")
                         out = soup.get_text()
                         # out <type 'unicode'>, u"
                         out = out.encode('UTF-8')
@@ -92,6 +93,9 @@ class MyBot(SingleServerIRCBot):
                             out = out[1:]
                         if len(out) > 20:
                             self.out = out
+        print("Message propre:\n", out)
+
+
 
 if __name__ == "__main__":
     server_list = [("irc.wikimedia.org", 6667)]
@@ -99,3 +103,19 @@ if __name__ == "__main__":
     realname = "Syntaxis analysis in Python with bot"
 
     MyBot(server_list, nickname, realname).start()
+
+'''
+
+/usr/lib/python2.7/site-packages/bs4/__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("html5lib"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+To get rid of this warning, change this:
+
+ BeautifulSoup([your markup])
+
+to this:
+
+ BeautifulSoup([your markup], "html5lib")
+
+  markup_type=markup_type))
+
+'''

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## sound.py
+## sound1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -42,7 +42,7 @@ class FactorySound():
                 gl.sound["boum"].stop()
             Idem repeat, pause
     """
-    
+
     def __init__(self, audio_file_path, buffered=True):
         ''' audio_file_path = "//audio/comment/boum.ogg"
             buffered = Boolean '''

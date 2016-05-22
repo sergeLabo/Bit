@@ -36,6 +36,7 @@ def FPS_main():
     Hrot = 3 * (0.5 - mouse.position[0])
     if -0.002 < Hrot < 0.002:
         Hrot = 0
+    # en radians ?
     cylinder.applyRotation([0, 0, Hrot], False)
 
     Vrot = 1 * (0.5 - mouse.position[1])

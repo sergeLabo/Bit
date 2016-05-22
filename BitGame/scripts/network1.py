@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## network.py
+## network1.py
 
 #############################################################################
 # Copyright (C) Labomedia March 2011
@@ -59,8 +59,3 @@ def recup_messages(data):
                 if len(m[2]) > 0:
                     gl.pad_change = True
                     gl.pad_out = m[2]
-
-
-
-
-

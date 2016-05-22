@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## pert.py
+## pert1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -26,7 +26,7 @@ try:
     from bge import logic as gl
 except:
     pass
-    
+
 from time import time, sleep
 from game import Game
 from sometools1 import VirtualGl
@@ -44,24 +44,24 @@ class Pert(Game):
     def update(self):
         self.chrono = time()
         print(self.chrono)
-        
+
     def end(self):
         pass
-        
+
 def end_scene(this_scene):
     '''Delete this_scene'''
     for scn in gl.getSceneList():
         if scn.name == this_scene:
             scn.end()
             print("End of scene:", scn)
-            
+
 def scene_list():
     return gl.getSceneList()
 
 if __name__ == "__main__":
     gl = VirtualGl()
     gl.pert = Pert("1", "2", "3")
-    
+
     while True:
         gl.pert.update()
         sleep(1)

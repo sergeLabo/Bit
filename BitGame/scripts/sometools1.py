@@ -1,4 +1,4 @@
-## sometools.py
+## sometools1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -68,7 +68,7 @@ def get_my_ip():
         Get local ip
         A generator that returns stripped lines of output from "ip address show"
     '''
-    
+
     iplines=(line.strip() for line in \
                         subprocess.getoutput("ip address show").split('\n'))
 

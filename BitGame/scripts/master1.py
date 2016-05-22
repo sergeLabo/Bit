@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## master.py
+## master1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013

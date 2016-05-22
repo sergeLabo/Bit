@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-## textureChange.py
+## textureChange1.py
 
 #############################################################################
 # Copyright (C) Labomedia November 2013
@@ -61,5 +61,3 @@ class TextureChange():
 
         self.obj_texture = texture.Texture(self.obj, self.ID)
         self.obj_texture.refresh(True)
-
-

@@ -47,13 +47,18 @@ def network_main():
 
 def recup_messages(data):
     # ['#bundle', 0.0, ['/irc', ',s', 'test']]
+
     data = data[2:]
+    #print(data)
+
     for m in data:
         if gl.musicsources == "irc":
             if '/irc' in m:
                 if gl.irc_out != m[2]:
                     gl.irc_change = True
                     gl.irc_out = m[2]
+                    #print(gl.irc_out)
+
         if gl.musicsources == "pad":
             if '/pad' in m:
                 if len(m[2]) > 0:

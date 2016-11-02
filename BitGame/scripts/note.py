@@ -77,6 +77,8 @@ def apply_irc_out(objDict):
     if gl.musicsources == "irc":
         decod = gl.irc_out.encode('latin-1').decode('utf-8')
 
+    #print(decod)
+
     # Display format
     objDict["TextIRC"]["Text"] = paragraphe(decod)
     objDict["TextIRC"].resolution = 64
@@ -89,12 +91,3 @@ def paragraphe(text):
         return text
     else:
         print("Text must be a string")
-
-
-
-
-
-
-
-
-
